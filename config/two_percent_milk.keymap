@@ -6,16 +6,49 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        m0: m0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(P) &kp A &kp S &kp S &kp W &kp O &kp R &kp D &kp N1 &kp N2 &kp N3>;
+            label = "M0";
+        };
+
+        m1: m1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp N1 &kp N9 &kp N9 &kp N6>;
+            label = "M1";
+        };
+
+        m2: m2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp S &kp A &kp J &kp E &kp D &kp U &kp L &kp N6 &kp AT &kp G &kp M &kp A &kp I &kp L &kp DOT &kp C &kp O &kp M>;
+            label = "M2";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp X
-                &kp Z
+&m0  &tog 1
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+&m1  &tog 2
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+&m2  &tog 0
             >;
         };
     };
